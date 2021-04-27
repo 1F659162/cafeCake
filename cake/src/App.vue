@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNav" >
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <router-link to="/hello" class="nav-link"  style="color:white; font-size:20px;" > <strong>Home page</strong> </router-link>
+            <router-link to="/" class="nav-link"  style="color:white; font-size:20px;" > <strong>Home page</strong> </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/hello" class="nav-link" style="color:white; font-size:20px;"></router-link>
@@ -32,9 +32,6 @@
 <script>
 export default {
   data(){
-    return{
-      
-    }
   }
 }
 </script>

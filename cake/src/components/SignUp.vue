@@ -1,15 +1,15 @@
 <template>
     <div>
         <form @submit.prevent="signUp">
-            <div class="container" >
+            <div class="container" style="padding-top:40px;">
                 <center>
-                    <table style="width:40%; border-radius: 20px;">
-                        <tr>
-                            <td style="text-align: center" colspan="2">
-                                <img src="images/logo.png" alt="">
+                    <table style="width:40%; border-radius: 20px;padding-top:40px;">
+                        <tr style="text-align: center;padding-top:20px;margin-top:20px;">
+                            <td class="fontKanti" style="font-size: 30px;" colspan="2" >
+                                <img src="./logo.png" alt="">
                             </td>
                         </tr>
-                        <tr style="text-align: center">
+                        <tr style="text-align: center;padding-top:20px;margin-top:20px;" >
                             <td class="fontKanti" style="font-size: 30px;" colspan="2">Sign Up</td>
                         </tr>
                         <tr>

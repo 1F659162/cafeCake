@@ -5,8 +5,10 @@
                 <table width="100%" style="margin-top: 1px; padding: 0;background-color: #E32126 ">
                     <tr style="padding:0; margin: 0">
                         <td width="20%;" height="60px;"></td>
-                        <td width="300px;" @click="cake()"  align="center" class="fontKanti fontS18" style="cursor: pointer;padding:0px;margin:0px; color: white;" >
-                            <button class="btn btn-outline-light" style="width:100%;height:60px;margin:0px;border-radius:0px;">CAKE</button>
+                        <td width="300px;"  align="center" class="fontKanti fontS18" style="cursor: pointer;padding:0px;margin:0px; color: white;" >
+                            <router-link to="/cake">
+                                <button class="btn btn-outline-light" style="width:100%;height:60px;margin:0px;border-radius:0px;">CAKE</button>
+                            </router-link>
                         </td>
                         <td width="300px;" align="center" class="fontKanti fontS18" style="cursor: pointer;padding:0px;margin:0px; color: white;" >
                             <button class="btn btn-outline-light" style="width:100%;height:60px;margin:0px">DRINK & COFFEE</button>
@@ -37,7 +39,6 @@ export default {
                 category: "nueng",
                 p_detail: "nueng",
             },
-            message : "white"
         }
     },
     methods:{
@@ -47,13 +48,6 @@ export default {
                 console.log("เพิ่มข้อมูลสำเร็จ");
             })
         },
-        hrefCake(){
-            const AddAPI = "http://localhost:4000/api/";
-            axios.post(AddAPI,this.User).then(()=>{
-                console.log("href cake");
-                this.$router.push('/cake');
-            })
-        }
     }
 }
 </script>
