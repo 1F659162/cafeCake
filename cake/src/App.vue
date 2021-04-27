@@ -1,33 +1,28 @@
-<style scoped>
 
-</style>
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-danger" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-danger fontKanti" style="padding:10px">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav" style="color:white;">
+      <img src="./assets/logo.png" style="width:35px;" alt="">
+      <div class="collapse navbar-collapse" id="navbarNav" >
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <router-link to="/hello">
-              <label for="" class="nav-link"> Hello</label>
-            </router-link>
+          <li class="nav-item ">
+            <router-link to="/hello" class="nav-link"  style="color:white; font-size:20px;" > <strong>Home page</strong> </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/hello">
-              <label for="" class="nav-link"> Hello</label>
-            </router-link>
+            <router-link to="/hello" class="nav-link" style="color:white; font-size:20px;"></router-link>
+
           </li>
           <li class="nav-item">
-            <router-link to="/hello">
-              <label for="" class="nav-link"> Hello</label>
-            </router-link>
+            <router-link to="/hello" class="nav-link" style="color:white; font-size:20px;">Home page</router-link>
+
           </li>
         </ul>
       </div>
+      <router-link to="/signUp">
+            <button class="btn btn-light"> <strong>Sign Up</strong></button>
+      </router-link>
+      <button class="btn btn-dark" style="margin-left:10px;"> <strong>Sign In</strong></button>
     </div>
   </nav>
     <router-view></router-view>
@@ -43,3 +38,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+.fontKanti{
+    font-family: 'Kanit', sans-serif;
+}
+</style>

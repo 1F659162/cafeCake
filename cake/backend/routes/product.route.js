@@ -2,6 +2,7 @@ const express = require('express');
 const ProductRoute = express.Router();
 
 let ProductModel = require('../models/Product');
+let UsersModel = require('../models/Users');
 
 // ดึงสินค้าทั้งหมดออกมา
 ProductRoute.route('/').get((req,res,next)=>{
@@ -15,8 +16,9 @@ ProductRoute.route('/').get((req,res,next)=>{
     })
 })
 
+// ----------------- products ----------------
 // เพิ่มข้อมูลสินค้า
-ProductRoute.route('/create').post((req,res,next)=>{
+ProductRoute.route('/create-product').post((req,res,next)=>{
     ProductModel.create(req.body,(error,data)=>{
         if(error) return next(error)
         else res.json(data)
@@ -59,4 +61,14 @@ ProductRoute.route('/delete-product/:id').delete((req,res,next)=>{
         }
     })
 })
+
+// ----------------- Users ----------------
+// เพิ่มข้อมูลสินค้า
+ProductRoute.route('/create-user').post((req,res,next)=>{
+    UsersModel.create(req.body,(error,data)=>{
+        if(error) return next(error)
+        else res.json(data)
+    })
+})
+
 module.exports = ProductRoute
