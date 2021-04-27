@@ -36,7 +36,6 @@
                                         {{product.p_name}}
                                     </b>
                                 </h5>
-
                             </div>
                             <div class="card-footer" >
                                 <label class="label20 fontKanti" for="">ราคา</label>
