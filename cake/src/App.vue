@@ -22,6 +22,7 @@
       <router-link to="/signUp">
             <button class="btn btn-light"> <strong>Sign Up</strong></button>
       </router-link>
+      <router-link to="/"></router-link>
       <button class="btn btn-dark" style="margin-left:10px;"> <strong>Sign In</strong></button>
     </div>
   </nav>

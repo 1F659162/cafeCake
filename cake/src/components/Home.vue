@@ -11,7 +11,7 @@
                             </router-link>
                         </td>
                         <td width="300px;" align="center" class="fontKanti fontS18" style="cursor: pointer;padding:0px;margin:0px; color: white;" >
-                            <button class="btn btn-outline-light" style="width:100%;height:60px;margin:0px">DRINK & COFFEE</button>
+                            <button @click="create()" class="btn btn-outline-light" style="width:100%;height:60px;margin:0px">DRINK & COFFEE</button>
                         </td>
                         <td width="300px;" align="center" class="fontKanti fontS18" style="cursor:pointer;padding:0px;margin:0px; color: white;" >
                             <button class="btn btn-outline-light" style="width:100%;height:60px;margin:0px">COOKIES</button>
@@ -43,7 +43,7 @@ export default {
     },
     methods:{
         create(){
-            const AddAPI = "http://localhost:4000/api/create-user";
+            const AddAPI = "http://localhost:4000/api/create-product";
             axios.post(AddAPI,this.product).then(()=>{
                 console.log("เพิ่มข้อมูลสำเร็จ");
             })

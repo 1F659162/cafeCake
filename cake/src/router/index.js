@@ -4,6 +4,7 @@ import SignUp from "@/components/SignUp.vue";
 import hello from "@/components/HelloWorld.vue";
 import cake from "@/components/cake.vue";
 import drink from "@/components/drink.vue";
+import cookie from "@/components/cookie.vue";
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: "/drink",
     name: "drink",
     component: drink,
+  },
+  {
+    path: "/cookie",
+    name: "cookie",
+    component: cookie,
   }
 ];
 
