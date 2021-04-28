@@ -18,7 +18,8 @@
                         <td width="300px;" align="center" class="fontKanti fontS18" style="cursor:pointer;padding:0px;margin:0px; color: white;" >
                             <router-link to="/cookie">
                                 <button class="btn btn-outline-light" style="width:100%;height:60px;margin:0px;border-radius:0px;">COOKIES</button>
-                            </router-link>                          </td>
+                            </router-link>    
+                        </td>
                         <td width="20%;" height="60px;"></td>
                     </tr>
         </table>
@@ -112,7 +113,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td style="padding-left: 5px;">
-                                                        <button type="submit" class="btn btn-warning" style="margin-top: 20px;box-shadow: 5px 5px 5px 5px rgba(20,20,20,.1);"> ใส่ตะกร้า </button>
+                                                        <button type="submit" @click="updated(iid)" class="btn btn-warning" style="margin-top: 20px;box-shadow: 5px 5px 5px 5px rgba(20,20,20,.1);"> ใส่ตะกร้า </button>
                                                     </td>
                                                 </tr>
                                         </table>
@@ -142,6 +143,16 @@ export default {
             category: "",
             p_detail: "",
             num:1,
+
+            prod:{
+                p_id: "C005",
+                p_name: "sab",
+                p_price: 300,
+                stock: 3,
+                category: "nueng",
+                p_detail: "nueng",
+            },
+            iid:''
         }
     },
     created(){
@@ -161,9 +172,7 @@ export default {
             this.stock= pro.stock;
             this.category=pro.category;
             this.p_detail=pro.p_detail;
-
-            console.log(this.status)
-            console.log(this.p_id)
+            this.iid=pro._id;
         },
         deUnit(){
             if(this.num > 1){
@@ -174,6 +183,22 @@ export default {
             if(this.num < this.stock){
                 this.num += 1;
             }
+        },
+        updated(id){
+            console.log(id)
+            this.prod.p_id= this.p_id;
+            this.prod.p_name= this.p_name;
+            this.prod.p_price= 300;
+            this.prod.stock= this.stock-this.num;
+            this.prod.category= this.category;
+            this.prod.p_detail= this.p_detail;
+            let apiURL = `http://localhost:4000/api/update-product/${id}`;
+                axios.put(apiURL, this.prod).then((res) => {
+                    console.log(res);
+                    this.$router.push('/')
+                }).catch(error => {
+                    console.log(error)
+                })
         }
     }
 }

@@ -113,7 +113,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td style="padding-left: 5px;">
-                                                        <button type="submit" @click="updated()" class="btn btn-warning" style="margin-top: 20px;box-shadow: 5px 5px 5px 5px rgba(20,20,20,.1);"> ใส่ตะกร้า </button>
+                                                        <button type="submit" @click="updated(iid)" class="btn btn-warning" style="margin-top: 20px;box-shadow: 5px 5px 5px 5px rgba(20,20,20,.1);"> ใส่ตะกร้า </button>
                                                     </td>
                                                 </tr>
                                         </table>
@@ -153,6 +153,8 @@ export default {
                 p_detail: "nueng",
             },
             iid:''
+            ,
+            use:{}
         }
     },
     created(){
@@ -161,6 +163,10 @@ export default {
             this.products = res.data
         }).catch(error => {
             console.log(error)
+        });
+        let apIURL = `http://localhost:4000/api/edit-Users/${this.$route.params.id}`;
+        axios.get(apIURL).then((res) => {
+            this.user = res.data
         })
     },
     methods:{
@@ -184,18 +190,21 @@ export default {
                 this.num += 1;
             }
         },
-        updated(){
-            console.log(this.iid)
-            this.prod.p_id= "C005";
-            this.prod.p_name= "sab";
+        updated(id){
+            console.log(id)
+            this.prod.p_id= this.p_id;
+            this.prod.p_name= this.p_name;
             this.prod.p_price= 300;
-            this.prod.stock= this.num;
-            this.prod.category= "nueng";
-            this.prod.p_detail= "nueng";
-            const AddAPI = `http://localhost:4000/api/update-product/`;
-            axios.post(AddAPI,this.prod).then(()=>{
-                console.log("อัพเดืสำเร็จ");
-            })
+            this.prod.stock= this.stock-this.num;
+            this.prod.category= this.category;
+            this.prod.p_detail= this.p_detail;
+            let apiURL = `http://localhost:4000/api/update-product/${id}`;
+                axios.put(apiURL, this.prod).then((res) => {
+                    console.log(res);
+                    this.$router.push('/')
+                }).catch(error => {
+                    console.log(error)
+                })
         }
     }
 }

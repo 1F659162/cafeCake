@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div >
         <form @submit.prevent="signUp">
             <div class="container" style="padding-top:40px;">
                 <center>
@@ -87,15 +87,6 @@ export default {
             axios.post(AddAPI,this.User).then(()=>{
                 console.log("เพิ่มข้อมูลสำเร็จ");
                 this.$router.push('/');
-                this.User = {
-                    user_id: '',
-                    user_fname: '',
-                    user_lname: '',
-                    user_user: '',
-                    user_pass: '',
-                    user_email: '',
-                    user_tell:'',
-                }
             })
         }
     }

@@ -64,10 +64,15 @@ export default {
     },
     methods: {
         checklogin(user,pass){
+            let confirm = false;
             for(let i = 0;i <= this.userpass.length;i++){
-                if(pass == this.userpass[i].user_pass && user == this.userpass[i].user_user){                        
+                if(pass == this.userpass[i].user_pass && user == this.userpass[i].user_user){  
+                    alert("login success")
                     this.$router.push('/');
                 }
+            }
+            if(confirm == false){
+                alert("username or password is wrongs")
             }
         }
     }

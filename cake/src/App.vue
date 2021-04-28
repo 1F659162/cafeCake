@@ -7,7 +7,7 @@
       <div class="collapse navbar-collapse" id="navbarNav" >
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <router-link to="/" class="nav-link"  style="color:white; font-size:20px;" > <strong>The Champion Cafe</strong> </router-link>
+            <router-link to="/cake" class="nav-link"  style="color:white; font-size:20px;" > <strong>The Champion Cafe</strong> </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/hello" class="nav-link" style="color:white; font-size:20px;"></router-link>
@@ -51,7 +51,7 @@ export default {
         checklogin(user,pass){
             for(let i = 0;i <= this.userpass.length;i++){
                 if(pass == this.userpass[i].user_pass && user == this.userpass[i].user_user){  
-                  
+                  console.log('')
                 }
             }
         },
