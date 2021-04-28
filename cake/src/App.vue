@@ -7,23 +7,21 @@
       <div class="collapse navbar-collapse" id="navbarNav" >
         <ul class="navbar-nav">
           <li class="nav-item ">
-            <router-link to="/" class="nav-link"  style="color:white; font-size:20px;" > <strong>Home page</strong> </router-link>
+            <router-link to="/" class="nav-link"  style="color:white; font-size:20px;" > <strong>The Champion Cafe</strong> </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/hello" class="nav-link" style="color:white; font-size:20px;"></router-link>
-
-          </li>
-          <li class="nav-item">
-            <router-link to="/hello" class="nav-link" style="color:white; font-size:20px;">Home page</router-link>
-
           </li>
         </ul>
       </div>
       <router-link to="/signUp">
-            <button class="btn btn-light"> <strong>Sign Up</strong></button>
+            <button class="btn btn-light"  v-if="login == ''"> <strong>Sign Up</strong></button>
       </router-link>
-      <router-link to="/"></router-link>
-      <button class="btn btn-dark" style="margin-left:10px;"> <strong>Sign In</strong></button>
+      <router-link to="/signIn">
+            <button class="btn btn-dark" style="margin-left:10px;" v-if="login == ''"> <strong>Sign In</strong></button>
+    </router-link>
+    <button class="btn btn-dark"  style="margin-left:10px;" @click="logout()" v-if="login != ''"> <strong>Logout</strong></button>
+
     </div>
   </nav>
     <router-view></router-view>
@@ -31,9 +29,39 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
+  
   data(){
-  }
+  return{
+            userpass: [],
+            login:'',
+        }
+    },
+    created(){
+        let apiURL = 'http://localhost:4000/api/show-user';
+        axios.get(apiURL).then(res => {
+            this.userpass = res.data
+        }).catch(error => {
+            console.log(error)
+        })
+    },
+    methods: {
+        checklogin(user,pass){
+            for(let i = 0;i <= this.userpass.length;i++){
+                if(pass == this.userpass[i].user_pass && user == this.userpass[i].user_user){  
+                  
+                }
+            }
+        },
+        logined(){
+          this.login="login";
+        }
+        ,logout(){
+          this.login='';
+        }
+    }
 }
 </script>
 <style scoped>

@@ -71,7 +71,6 @@ export default {
     data(){
         return {
             User:{
-                user_id: '',
                 user_fname: '',
                 user_lname: '',
                 user_user: '',
